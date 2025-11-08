@@ -13,12 +13,14 @@ def column_check(sudoku, column_no):
 
     @return [bool], returns True if the column is correct, False otherwise.
     """
-
-    # TODO: use set() to create a new set to record checked position. Since set doesn't allow unique items, if the set contains the same number, we know that there is a conflict
+    checked_numbers = set()
 
     for row in sudoku:
-        # TODO: get the number using `column_no` as the index of the list item
-        # TODO: If the number is not 0, then we check if the number is already in the set. If the number in the set, it means this number exists, directly return False; otherwise add this number to the set, and continue until all numbers are checked.
+        num = row[column_no]
+        if num != 0:
+            if num in checked_numbers:
+                return False
+            checked_numbers.add(num)
 
     return True
 
