@@ -27,7 +27,7 @@ def who_won(board):
             if spot == 1:
                 player1_count += 1
             elif spot == 2:
-                player2_count += 1
+                player2_count += 1 
 
 
     if player1_count > player2_count:

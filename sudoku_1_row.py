@@ -14,14 +14,16 @@ def row_check(sudoku, row_no):
     @return [bool], returns True if the row is correct, False otherwise.
     """
 
-    # TODO: use set() to create a new set to record checked position. Since set doesn't allow unique items, if the set contains the same number, we know that there is a conflict
+    checked_numbers = set()
 
     row_to_check = sudoku[row_no]  # get the row to check
 
     for num in row_to_check:
-        # TODO: use loop to check every item of the row. If the number is not 0, then we check if the number is already in the set. If the number in the set, it means this number exists, directly return False; otherwise add this number to the set, and continue until all numbers are checked.
-
-    # TODO: return True if the loop terminates normally (all numbers are checked without duplication found)
+        if num != 0:
+             if num in checked_numbers:
+                 return False
+             checked_numbers.add(num)
+    return True
 
 
 if __name__ == "__main__":
